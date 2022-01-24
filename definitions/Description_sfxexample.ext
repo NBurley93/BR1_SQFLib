@@ -1,0 +1,49 @@
+/**
+	Description_musicexample.ext (C) 2022 BR1Arma
+
+	Paste this into your Description.ext file within your mission folder.
+	Sound definitions won't be usuable or appear in mission until it is restarted.
+	So adding this while the mission is running will do nothing. You do not need to reload Eden
+
+	Reference to https://community.bistudio.com/wiki/Description.ext#CfgSounds for more information
+*/
+
+class CfgSounds
+{
+	sounds[] = {};
+	class wolf1
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "my_wolf_sound";
+
+		// filename, volume, pitch, distance (optional)
+		sound[] = { "sfx\wolf1.ogg", 1, 1, 100 };
+
+		// subtitle delay in seconds, subtitle text
+		titles[] = { 1, "*wolf growls*" };
+	};
+	class playerIsHurt
+	{
+		name = "Man, you are injured?! - by NPC";
+		sound[] = { "sfx\playerIsHurt1.ogg", 1, 1 };
+		titles[] = {
+			0, "Dude! You are covered in blood!",
+			6, "Are you sure you are OK?!"
+		};
+	};
+	class AnotherSound
+	{
+		name = "Sound with advanced subtitle options";
+		sound[] = { "sfx\somesound.ogg", 1, 1 };
+
+		forceTitles = true;			// will display titles even if global show titles option is off
+		titlesFont = "LCD14";		// titles font family
+		titlesSize = 0.1;			// titles font size
+		titlesStructured = true;	// treat titles as Structured Text (see below)
+
+		titles[] = {
+			0, "<t color=""#ff0000"">Red text</t>",
+			1, "<t color=""#00ff00"">Green text</t>"
+		};
+	};
+};

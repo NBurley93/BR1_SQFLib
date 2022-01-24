@@ -1,0 +1,35 @@
+/**
+	Description_musicexample.ext (C) 2022 BR1Arma
+
+	Paste this into your Description.ext file within your mission folder.
+	Sound definitions won't be usuable or appear in mission until it is restarted.
+	So adding this while the mission is running will do nothing. You do not need to reload Eden
+
+	Reference to https://community.bistudio.com/wiki/Description.ext#CfgRadio for more information
+
+	They can be played using customRadio, vehicleRadio, groupRadio, sideRadio, or globalRadio
+	Ex. `[unit] sideRadio "RadioMsg2";`
+*/
+
+
+class CfgRadio
+{
+	sounds[] = {};
+	class RadioMsg1
+	{
+		// display name
+		name	= "";
+
+		// filename, volume, pitch
+		sound[]	= { "\sound\filename1.ogg", db - 100, 1.0 };
+
+		// radio caption
+		title	= "I am ready for your orders.";
+	};
+	class RadioMsg2
+	{
+		name	= "";
+		sound[]	= { "\sound\filename2", db - 100, 1.0 }; // .wss implied
+		title	= $STR_RADIO_2;
+	};
+};

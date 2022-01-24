@@ -1,0 +1,13 @@
+/**
+Description.ext (C) 2022 BR1Arma
+
+This file provides class definitions for Cfg entries such as CfgMusic,
+or custom class definitions meant to be implementations of other classes
+
+You can also include other files using '#include "example.hpp"' I typically like to place include files in a folder at the mission
+folder level called include, that way you can call '#include "include\file.hpp"' and keep everything organized.
+
+I recommend you define custom classes outside of Description.ext if possible, as it can get very crowded on occassion.
+**/
+
+respawnOnStart = 1; // Forces the player to fall over dead and respawn when they enter the mission

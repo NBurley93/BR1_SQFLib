@@ -1,0 +1,27 @@
+/**
+	Description_musicexample.ext (C) 2022 BR1Arma
+
+	Paste this into your Description.ext file within your mission folder.
+	Sound definitions won't be usuable or appear in mission until it is restarted.
+	So adding this while the mission is running will do nothing. You do not need to reload Eden
+
+	Reference to https://community.bistudio.com/wiki/Description.ext#CfgMusic for more information
+*/
+
+class CfgMusic {
+	// Not required, you can just use `tracks[] = {}`
+	// But you will need the tracks defined here if you want
+	// To use them in zeus modules or Eden instead of scripting
+	tracks[] = {track_0};
+
+	// The class name is what you call when running "playMusic"
+	// Eg. `playMusic "track_0"` for the below track
+	class track_0 {
+		// Display name, not used in anything other than Eden
+		name = "Fortunate Son";
+
+		// Filename, volume, and pitch (fyi, don't put the volume anywhere past -10 or 10,
+		// it will break fadeMusic if put higher, as well as potentially blowing out eardrums)
+		sound[] = { "snd\track_0.ogg", db+10, 1.0 };
+	};
+};
