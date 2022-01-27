@@ -1,19 +1,22 @@
 /**
 	snippets.sqf (C) 2022 BR1Arma
 
-	This is a collection of code snippets that can be useful to paste in, especially if you don't have the wiki on-hand
+	This is a collection of code snippets that can be useful to paste in, 
+	especially if you don't have the wiki on-hand
 */
 
 // Execute a script, will NOT synch over all clients, use this for code we expect to only run server-side
 ["foo", "bar"] execVM "scripts/foobar.sqf";
 
-// If you want to wait for the script to finish executing, you can use the returned handle. Note that this doesn't work with remoteExec
+// If you want to wait for the script to finish executing, you can use the returned handle.
+// Note that this doesn't work with remoteExec since remoteExec does not return a script handle
 _scriptHandle = ["foo", "bar"] execVM "scripts/foobar.sqf";
 waitUntil { scriptDone _scriptHandle };
 
 // Execute a script file on a multiplayer client
 // Reference https://community.bistudio.com/wiki/remoteExec
-// See https://community.bistudio.com/wiki/Arma_3:_Remote_Execution for information about remote execution in general
+// See https://community.bistudio.com/wiki/Arma_3:_Remote_Execution for information
+// about remote execution in general
 ["scripts/foobar.sqf", "foo", "bar"] remoteExec [execVM, 0, false];
 
 // Adds a camera shake effect, used in vanilla for the earthquakes and explosion fx
