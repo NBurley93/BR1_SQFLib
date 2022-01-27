@@ -13,12 +13,13 @@
 ppDynamicBlur = ppEffectCreate ["DynamicBlur", 400];
 ppDynamicBlur ppEffectAdjust [50]; // Set "blurriness" of the effect
 ppDynamicBlur ppEffectCommit 2; // Take two seconds to apply effect (effect fades in)
-sleep 5; // wait 5 seconds
+waitUntil { ppEffectCommitted ppDynamicBlur } // Wait until the effect is committed
+
+sleep 5; // maintain effect for 5 seconds
 
 // Optional effect to fade back to normal before deleting the effect
-ppDynamicBlur ppEffectAdjust [0];
-ppDynamicBlur ppEffectCommit 2;
-
-sleep 2; // wait for commit to finish
+ppDynamicBlur ppEffectAdjust [0]; // Revert to no blurriness
+ppDynamicBlur ppEffectCommit 2; // Two second commit time
+waitUntil { ppEffectCommitted ppDynamicBlur } // Wait until the effect is committed
 ppEffectDestroy ppDynamicBlur; // Destroy the effect, not mandatory if it's the end of the script,
 							   // but can free up the variable/handle for use elsewhere in the script
